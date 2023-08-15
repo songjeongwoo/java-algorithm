@@ -20,6 +20,14 @@ public class B1543 {
             startIndex = findIndex + word.length();
             count++;
         }
-        System.out.print(count);
+        System.out.println(count);
+
+        System.out.println("------------");
+
+        // replace를 활용한 다른 풀이
+        String replaced = doc.replace(word, "");
+        int length = doc.length() - replaced.length();
+        int count2 = length / word.length();
+        System.out.println(count2);
     }
 }
