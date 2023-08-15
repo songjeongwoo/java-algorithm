@@ -2,6 +2,7 @@ package src.baekjoon;
 
 import java.util.*;
 
+// 문제: 문자열에서 가장 많이 등장한 알파벳(대소문자 구분X)
 public class B1157 {
     public static int[] getAlphabetCount(String str) {
         int[] count = new int[26];
