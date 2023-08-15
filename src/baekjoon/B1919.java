@@ -1,9 +1,8 @@
-package src;
+package src.baekjoon;
 
 import java.util.*;
-import java.io.*;
 
-public class Main
+public class B1919
 {
     public static int[] genAlphabetCount(String str) {
         int[] count = new int[26];  // 알파벳 소문자는 26개
