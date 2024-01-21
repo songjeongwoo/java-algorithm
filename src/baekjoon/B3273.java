@@ -20,12 +20,17 @@ public class B3273 {
             exist[a[i]] = true;
 
         int ans = 0;
-        for (int i = 0; i < N; i++) {
-            int pairValue = X - a[i];
-            if (0 <= pairValue && pairValue <= 1_000_000)
-                ans += exist[pairValue] ? 1 : 0;
+//        for (int i = 0; i < N; i++) {
+//            int pairValue = X - a[i];
+//            if (0 <= pairValue && pairValue <= 1_000_000)
+//                ans += exist[pairValue] ? 1 : 0;
+//        }
+//        bw.write(ans / 2 + "\n");
+        for (int i = 1; i <= (X - 1) / 2; i++) {
+            if (i <= 1_000_000 && X - 1 <= 1_000_000)
+                ans += (exist[i] && exist[X - i]) ? 1 : 0;
         }
-        bw.write(ans / 2 + "\n");
+        bw.write(ans + "\n");
         bw.flush();
         bw.close();
     }
