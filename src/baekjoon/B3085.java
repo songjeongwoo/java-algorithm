@@ -11,37 +11,40 @@ public class B3085 {
         map[r2][c2] = tmp;
     }
 
-    // 2. 교환한 상타에서 가장 긴 연속 부분 행/열을 찾는다.
+    // 2. 교환한 상타에서 가장 긴 연속 부분 행/열을 찾는다. - targetColor 변수를 이용해 연속성을 판단하는 방법
+
     public static int findMaxRow(char[][] map) {  // 가장 긴 연속 열(가로)  // 시간복잡도: O(N²)
         int N = map.length;
         int maxRow = 0;
         for (int r = 0; r < N; r++) {
-            int len = 1;
-            for (int c = 1; c < N; c++) {
-                if (map[r][c] == map[r][c - 1]) len++;
+            int len = 0;
+            int currentColor = map[r][0];
+            for (int c = 0; c < N; c++) {
+                if (map[r][c] == currentColor) len++;
                 else {
-                    maxRow = Math.max(maxRow, len);
+                    currentColor = map[r][c];
                     len = 1;
                 }
+                maxRow = Math.max(maxRow, len);
             }
-            maxRow = Math.max(maxRow, len);
         }
         return maxRow;
     }
 
-    public static int findMaxColumn(char[][] map) {  // 가장 긴 연속 열(가로)  // 시간복잡도: O(N²)
+    public static int findMaxColumn(char[][] map) {  // 가장 긴 연속 행(세로)  // 시간복잡도: O(N²)
         int N = map.length;
         int maxColumn = 0;
         for (int c = 0; c < N; c++) {
-            int len = 1;
-            for (int r = 1; r < N; r++) {
-                if (map[r][c] == map[r - 1][c]) len++;
+            int len = 0;
+            int currentColor = map[0][c];
+            for (int r = 0; r < N; r++) {
+                if (map[r][c] == currentColor) len++;
                 else {
-                    maxColumn = Math.max(maxColumn, len);
+                    currentColor = map[r][c];
                     len = 1;
                 }
+                maxColumn = Math.max(maxColumn, len);
             }
-            maxColumn = Math.max(maxColumn, len);
         }
         return maxColumn;
     }
